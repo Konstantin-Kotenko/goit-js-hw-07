@@ -21,7 +21,7 @@ const img = galleryItems
   })
   .join('');
 
-galleryDiv.insertAdjacentHTML('beforeend', img);
+galleryDiv.innerHTML = img;
 
 const onLinkClick = (e) => {
   e.preventDefault();
