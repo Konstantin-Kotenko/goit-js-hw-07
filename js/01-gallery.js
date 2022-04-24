@@ -7,13 +7,14 @@ const galleryDiv = document.querySelector('.gallery');
 
 const img = galleryItems
   .map((element) => {
+    const {original, preview, description} = element;
     return `<div class="gallery__item">
-  <a class="gallery__link" href=${element.original}>
+  <a class="gallery__link" href=${original}>
     <img
       class="gallery__image"
-      src=${element.preview}
-      data-source= ${element.original}
-      alt=${element.description}
+      src=${preview}
+      data-source= ${original}
+      alt=${description}
     />
   </a>
 </div>`;
@@ -24,14 +25,14 @@ galleryDiv.insertAdjacentHTML('beforeend', img);
 
 const onLinkClick = (e) => {
   e.preventDefault();
-
-  if (e.target.nodeName === '.gallery__link') {
+  if (e.target.nodeName === '.gallery__image') {
     return;
   }
-  console.log(e.target);
-  console.log(e.target.dataset.source);
+  const instance = basicLightbox.create(`
+    <img src="${e.target.dataset.source}" width="800" height="600">
+`);
+
+  instance.show();
 };
 
 galleryDiv.addEventListener('click', onLinkClick);
-
-console.log(galleryDiv);
