@@ -20,7 +20,10 @@ const img = galleryItems
 
 galleryDiv.innerHTML = img;
 
-const lightbox = new SimpleLightbox('.gallery a', {});
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionsDelay: '250ms',
+});
 
 const onLinkClick = (e) => {
   e.preventDefault();
