@@ -25,12 +25,18 @@ galleryDiv.insertAdjacentHTML('beforeend', img);
 
 const onLinkClick = (e) => {
   e.preventDefault();
+
   if (e.target.nodeName === '.gallery__image') {
     return;
   }
+
   const instance = basicLightbox.create(`
-    <img src="${e.target.dataset.source}" width="800" height="600">
-`);
+      <img src="${e.target.dataset.source}" width="800" height="600">
+  `);
+
+  document.body.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') instance.close();
+  });
 
   instance.show();
 };
