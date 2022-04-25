@@ -1,8 +1,6 @@
 import {galleryItems} from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 const galleryDiv = document.querySelector('.gallery');
 
 const img = galleryItems
@@ -24,13 +22,3 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionsDelay: '250ms',
 });
-
-const onLinkClick = (e) => {
-  e.preventDefault();
-
-  if (e.target.nodeName === '.gallery__image') {
-    return;
-  }
-};
-
-galleryDiv.addEventListener('click', onLinkClick);
