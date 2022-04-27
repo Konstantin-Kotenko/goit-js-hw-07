@@ -38,7 +38,7 @@ const onLinkClick = (e) => {
 };
 
 const onKeyDown = (e) => {
-  if (e.key === 'Escape') instance.close();
+  if (e.key === 'Escape' && instance !== null) instance.close();
 };
 
 document.body.addEventListener('keydown', onKeyDown);
